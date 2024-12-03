@@ -1,0 +1,128 @@
+/* 전역 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0078d7, #005bb5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* 컨테이너 공통 스타일 */
+.container, .login-container, .signup-container {
+    background: #fff;
+    color: #333;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 로고 */
+.logo img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* 로그인/회원가입 제목 */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #005bb5;
+    line-height: 1.5;
+}
+
+h1 span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 폼 그룹 */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #005bb5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 91, 181, 0.5);
+}
+
+/* 버튼 스타일 */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #005bb5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #003f8a;
+}
+
+/* 회원가입 페이지 추가 스타일 */
+.signup-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #005bb5;
+    margin-bottom: 20px;
+}
+
+.signup-container small {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* 링크 스타일 */
+.register-link, .login-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.register-link a, .login-link a {
+    color: #005bb5;
+    text-decoration: none;
+}
+
+.register-link a:hover, .login-link a:hover {
+    text-decoration: underline;
+}
