@@ -1,22 +1,41 @@
-document.getElementById('signup-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.getElementById("signup-form").addEventListener("submit", async (event) => {
+    event.preventDefault(); // 기본 동작 방지
 
-    const studentId = document.getElementById('student-id').value;
-    const phone = document.getElementById('phone').value;
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-    if (password !== confirmPassword) {
-        alert('비밀번호가 일치하지 않습니다.');
+    if (!username || !password) {
+        alert("아이디와 비밀번호를 입력하세요.");
         return;
     }
 
-    if (!studentId || !phone || !username || !password) {
-        alert('모든 필드를 입력해주세요.');
-        return;
-    }
+    try {
+        console.log("회원가입 요청 시작:", { username, password }); // 디버깅 로그
 
-    alert('회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.');
-    window.location.href = 'index.html'; // 로그인 페이지로 이동
+        // 서버에 요청 보내기
+        const response = await fetch("http://localhost:4000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+
+        console.log("서버 응답:", data);
+
+        if (response.ok) {
+            alert("회원가입 성공! 로그인 페이지로 이동합니다.");
+
+            // 약간의 대기 시간을 주고 리다이렉트 실행
+            setTimeout(() => {
+                window.location.assign("index.html");
+            }, 100);
+        } else {
+            console.warn("회원가입 실패:", data.message);
+            alert(`회원가입 실패: ${data.message}`);
+        }
+    } catch (error) {
+        console.error("회원가입 요청 중 오류 발생:", error);
+        alert("회원가입 중 문제가 발생했습니다. 나중에 다시 시도해주세요.");
+    }
 });
